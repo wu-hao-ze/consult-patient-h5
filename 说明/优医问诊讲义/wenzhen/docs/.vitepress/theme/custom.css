@@ -1,0 +1,49 @@
+/* :root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+} */
+:root{
+  --vp-nav-height-desktop: 60px;
+}
+
+.VPHomeHero .name .clip {
+  background: -webkit-linear-gradient(315deg,#42d392 25%,#647eff);
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+@media (min-width: 960px) {
+  .VPHomeHero .name .clip {
+    font-size: 68px;
+  }
+  .VPHomeHero .text {
+    font-size: 54px;
+  }
+}
+img {
+  border-radius: 4px;
+}
+.vp-doc :not(pre) > code {
+  color: #fa7700;
+}
+
+.home-container {
+  margin: 0 auto;
+  max-width: 1152px;
+  padding: 25px 0;
+}
+@media screen and (max-width: 768px) {
+  .home-container {
+    max-width: 100%;
+    padding: 25px;
+  }
+}
+
+
+.vp-doc blockquote{
+  border-left-color: var(--vp-c-brand);
+}
+
+/* body {
+  text-rendering: optimizeSpeed;
+} */

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 创建ws实例，建立连接，相当于是handshake那一步(ws://121.40.165.18:8800 备用 ws 服务，有广告)
+    var ws = new WebSocket("wss://javascript.info/article/websocket/demo/hello");
+    // 连接成功事件onopen，这一步相当于是acknowledge
+    ws.onopen = function (evt) {
+      console.log("Connection open ...");
+      // 客户端向服务端发送信息用send
+      ws.send("Hello WebSockets!");
+    };
+    // 客户端接收服务端信息事件用onmessage，形参evt是服务器响应回来的信息
+    // 如果客户端不发信息，也就是没有send，这里仍然可以使用onmessage事件直接接收服务端发过来的信息，这里就是实施双向即时通讯的关键
+    ws.onmessage = function (evt) {
+      console.log("Received Message: " + evt.data);
+      // 关闭连接
+      ws.close();
+    };
+    // 关闭连接事件onclose
+    ws.onclose = function (evt) {
+      console.log("Connection closed.");
+    };
+  </script>
+</body>
+
+</html>

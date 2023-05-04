@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>
+    <%=VITE_APP_TITLE%>
+  </title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <!-- 引入qq登录的sdk -->
+  <!-- 如果使用环境变量的写法是：data-redirecturi="<%=VITE_APP_CALLBACK%>/login/callback" -->
+  <!-- 但是因为这里是本地项目，开发环境的域名为http://localhost:80 不能用于qq登录，所以直接改成开发环境下的应该配置的域名 -->
+  <script src="https://connect.qq.com/qc_jssdk.js" data-appid="102015968" 
+  data-redirecturi="http://consult-patients.itheima.net/login/callback"></script>
+  <!-- 下面的真机调试的小按钮只在开发环境下使用，可以利用DEV来区分 -->
+  <% if(DEV){ %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/eruda/2.4.1/eruda.min.js"></script>
+    <script>eruda.init()</script>
+    <% } %>
+</body>
+
+</html>

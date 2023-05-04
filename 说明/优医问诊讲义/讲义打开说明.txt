@@ -1,0 +1,5 @@
+1、在 wenzhen 的根目录中，打开终端，然后输入npm i 或者 yarn 安装依赖
+
+2、执行 yarn docs:dev    或者 执行 npm run docs:dev
+
+3、打开终端中的地址，等待下，就可以再浏览器中看到在线讲义。

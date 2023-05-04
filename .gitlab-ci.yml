@@ -1,0 +1,23 @@
+stages:
+  - build
+cache:
+  key: ${CI_BUILD_REF_NAME}
+  paths:
+    - node_modules/
+
+build-140:
+  stage: build
+  only:
+    - master
+  script:
+    - rm -rf node_modules/
+    - pnpm i
+    - pnpm build
+    - rm -rf /home/patient-h5-preview
+    - mkdir /home/patient-h5-preview
+    - cp -r dist/* /home/patient-h5-preview
+    - cd /home/patient-h5-preview
+    - pm2 delete patient-h5-preview || echo no
+    - pm2 serve --spa ./ 8083 --name patient-h5-preview
+  tags: 
+    - patient-h5-preview
